@@ -116,7 +116,7 @@
       echo "<br>";
 
     //Zadanie 3
-    //Summuj wszywstkie wartość w 1 kolumnie tablicy 2 wymiarowej array4x4 i wypisz to w nowej
+    //Summuj wszywstkie wartość w każdej kolumnie tablicy 2 wymiarowej array4x4 i wypisz to w nowej
         $suma = 0;
         for($i = 0; $i < count($array4x4); $i++){
             for($j = 0; $j < count($array4x4[$i]); $j++){
