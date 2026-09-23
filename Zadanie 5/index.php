@@ -85,12 +85,14 @@
         echo $i;
     }
 
+    $i = 1;
     while($i <= 100){
         echo $i;
         $i += 2;
     }
 
-    while($i = 100; $i >= 1){
+    $i = 100;
+    while($i >= 1){
         echo $i;
         $i -= 4;
     }
