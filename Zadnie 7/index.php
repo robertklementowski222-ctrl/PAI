@@ -70,52 +70,67 @@
     ];
 
 
-    function obliczsume(array $liczby): int{
-        $suma = 0;
-        foreach($liczby as $liczba) {
-            $suma += $liczba;
-        }
-        return $suma;
+    function obliczSume(array $liczby): int|float
+{
+    $suma = 0;
+
+    foreach ($liczby as $liczba) {
+        $suma += $liczba;
     }
 
-    function obliczsrednia(array $liczby): float{
-        $suma = 0;
-        foreach($liczby as $liczba) {
-            $suma += $liczba;
-        }
-        return $suma / count($liczby);
+    return $suma;
+}
+
+function obliczSrednia(array $liczby): float
+{
+    if (count($liczby) === 0) {
+        throw new InvalidArgumentException('Tablica nie może być pusta.');
     }
 
-    function obliczMin(array $liczby): int{
-        $najmniejsza = 0;
-        foreach($liczby as $liczba) {
-            if($liczby < $najmniejsza) {
-                $najmniejsza = $liczba;
-            }
-        }
-        return $najmniejsza;
+    return obliczSume($liczby) / count($liczby);
+}
+
+function obliczMin(array $liczby): int|float
+{
+    if (count($liczby) === 0) {
+        throw new InvalidArgumentException('Tablica nie może być pusta.');
     }
 
-    function obliczMax(array $liczby): int{
-        $najwieksza = 0;
-        foreach($liczby as $liczba) {
-            if($liczba > $najwieksza) {
-                $najwieksza = $liczba;
-            }
+    $najmniejsza = $liczby[0];
+
+    foreach ($liczby as $liczba) {
+        if ($liczba < $najmniejsza) {
+            $najmniejsza = $liczba;
         }
-        return $najwieksza;
     }
 
-    function ObliczStatystykiSuma($array, $liczby): array{
-        $suma = obliczsume($liczby);
-        $srednia = obliczsrednia($liczby);
-        $min = obliczMin($liczby);
-        $max = obliczMax($liczby);
-        return [
-            "suma" => $suma,
-            "srednia" => $srednia,
-            "min" => $min,
-            "max" => $max,
-        ];
+    return $najmniejsza;
+}
+
+function obliczMax(array $liczby): int|float
+{
+    if (count($liczby) === 0) {
+        throw new InvalidArgumentException('Tablica nie może być pusta.');
     }
+
+    $najwieksza = $liczby[0];
+
+    foreach ($liczby as $liczba) {
+        if ($liczba > $najwieksza) {
+            $najwieksza = $liczba;
+        }
+    }
+
+    return $najwieksza;
+}
+
+function obliczStatystyki(array $liczby): array
+{
+    return [
+        'suma' => obliczSume($liczby),
+        'srednia' => obliczSrednia($liczby),
+        'min' => obliczMin($liczby),
+        'max' => obliczMax($liczby),
+    ];
+}
 ?>
