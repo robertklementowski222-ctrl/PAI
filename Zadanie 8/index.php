@@ -41,6 +41,7 @@
 
     //Zad 4 Wprowadź dowolną liczbę całkowitą. Wyświetl kolejne 20 liczb podzielnych przez n.
     //Jeśli podana liczba nie jest podzielna przez n,znajdź kolejną liczbę podzielną przez n.
+    
     // $x = 5
     // $n = 3; 
     // $count = 0;
