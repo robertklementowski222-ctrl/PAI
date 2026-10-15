@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hello">Witaj na mojej stronie</h1>
+
+
+    <button id="send">Wyślij</button>
+
+    <hr>
+
+    <form id="myForm">
+        <label for="price">Cena:</label>
+        <input type="number" id="price" placeholder="Wpisz coś...">
+        <br>
+        <label for="amount">Ilosc:</label>
+        <input type="number" id="amount" placeholder="Wpisz coś...">
+        <br>
+        <button type="button" id="calculate">oblicz</button>
+
+        <p id="result"></p>
+    </form>
+
+    <form id="myForm2">
+        <label for="dlugosc">Długość:</label>
+        <input type="number" id="dlugosc" placeholder="Wpisz długość">
+        <br>
+        <label for="szerokosc">Szerokość:</label>
+        <input type="number" id="szerokosc" placeholder="Wpisz szerokość">
+        <br>
+        <label for="plytka">Płytka:</label>
+        <input type="number" id="plytka" placeholder="Wpisz powierzchnię płytki">
+        <br>
+        <button type="button" onclick="calculateButton2Click(event)">oblicz</button>
+
+        <p id="result2"></p>
+    </form>
+
+    <script>
+        const helloElement = document.getElementById("hello");
+
+        document.getElementById("send").addEventListener("click", function() {
+            helloElement.textContent = "Przycisk został kliknięty!";
+        });
+
+        let calculateButton = document.querySelector("#calculate");
+        calculateButton.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            let price = parseFloat(document.getElementById("price").value);
+            let amount = parseFloat(document.getElementById("amount").value);
+            let total = price * amount;
+
+            document.getElementById("result").textContent = "Całkowity koszt: " + total + "zł";
+        });
+
+
+        function calculateButton2Click(event) {
+            event.preventDefault();
+
+            let dlugosc = parseFloat(document.getElementById("dlugosc").value);
+            let szerokosc = parseFloat(document.getElementById("szerokosc").value);
+            let plytka = parseFloat(document.getElementById("plytka").value);
+            let total2 = (dlugosc * szerokosc) / plytka;
+
+            document.getElementById("result2").textContent = "Całkowita ilość płytek: " + total2;
+        }
+
+    </script>
+</body>
+</html>
