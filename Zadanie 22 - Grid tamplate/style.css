@@ -1,0 +1,54 @@
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "nav section aside"
+        "footer footer footer";
+    grid-template-columns: 25% 50% 25%;
+}
+
+#header {
+    grid-area: header;
+    background-color: red;
+}
+
+#navbar {
+    grid-area: nav;
+    background-color: blue;
+}
+
+.main-content {
+    grid-area: section;
+    background-color: gray;
+    display: grid;
+    grid-template-areas:
+        "header2"
+        "article"
+        "footer2";
+
+}
+
+#sidebar {
+    grid-area: aside;
+    background-color: green;
+}
+
+#footer {
+    grid-area: footer;
+    background-color: yellow;
+}
+
+#header2{
+    grid-area: header2;
+    background-color: lightgray;
+}
+
+#article {
+    grid-area: article;
+    background-color: lightgray;
+}
+
+#footer2 {
+    grid-area: footer2;
+    background-color: lightgray;
+}
