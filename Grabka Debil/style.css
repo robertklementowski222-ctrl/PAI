@@ -1,0 +1,64 @@
+/* ===== GŁÓWNA SIATKA STRONY ===== */
+.container{
+    display: grid;                          /* włącza układ siatki dla wszystkiego, co jest w środku .container */
+    grid-template-columns: 25% 50% 25%;     /* 3 kolumny: lewa 25%, środkowa 50%, prawa 25% szerokości */
+    grid-template-areas:                    /* mapa strony: każdy napis w cudzysłowie to jeden WIERSZ */
+    "header header header"                  /* wiersz 1: nagłówek na całą szerokość */
+    "nav main aside"                        /* wiersz 2: menu | treść | panel boczny */
+    "footer footer footer";                 /* wiersz 3: stopka na całą szerokość */
+}
+
+/* Każdy element dostaje swoje "miejsce" z mapy powyżej przez grid-area.
+   Nazwa w grid-area musi być identyczna jak nazwa w grid-template-areas. */
+
+#header1{
+    grid-area: header;                      /* nagłówek strony zajmuje obszar "header" (cały wiersz 1) */
+    background-color: #f2f2f2;              /* bardzo jasny szary */
+}
+
+#nav1{
+    grid-area: nav;                         /* menu jest w lewej kolumnie wiersza 2 */
+    background-color: #e6e6e6;
+    height: 500px;                          /* stała wysokość: wiersz 2 będzie miał 500px */
+}
+
+/* ===== TREŚĆ GŁÓWNA (ŚRODKOWA KOLUMNA) ===== */
+#main1{
+    grid-area: main;                        /* ten element stoi w środkowej kolumnie wiersza 2 */
+    background-color: #cccccc;
+    display: grid;                          /* jednocześnie sam jest NOWĄ siatką (siatka w siatce) */
+    grid-template-areas:                    /* wewnątrz: 1 kolumna i 3 wiersze, jeden pod drugim */
+    "header2"
+    "article1"
+    "footer2";
+    height: 500px;                          /* wysokość dzielona między 3 wiersze wewnętrzne */
+}
+
+/* Elementy wewnątrz #main1 – ich grid-area odnosi się do siatki #main1, a nie do .container */
+
+#header2{
+    grid-area: header2;                     /* górny pasek treści */
+    background-color: #b3b3b3;
+}
+
+#article1{
+    grid-area: article1;                    /* środkowy wiersz: artykuł */
+    background-color: #999999;
+}
+
+#footer2{
+    grid-area: footer2;                     /* dolny pasek treści */
+    background-color: #808080;
+}
+
+/* ===== PRAWY PANEL I STOPKA ===== */
+#aside1{
+    grid-area: aside;                       /* panel boczny w prawej kolumnie wiersza 2 */
+    background-color: #b3b3b3;
+    height: 500px;
+}
+
+#footer1{
+    grid-area: footer;                      /* stopka strony na całą szerokość, wiersz 3 */
+    background-color: #999999;
+}
